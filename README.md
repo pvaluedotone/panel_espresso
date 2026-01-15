@@ -47,6 +47,33 @@ The app will open in your browser at http://127.0.0.1:7860
 
 This app uses [pyfixest](https://github.com/py-econometrics/pyfixest) for efficient estimation of panel data models with high-dimensional fixed effects.
 
+## Deployment
+
+### Deploy to Google Cloud Run
+
+This application can be easily deployed to Google Cloud Run, making it accessible through your custom domain.
+
+**Quick deployment**:
+```bash
+# Use the deployment script
+chmod +x deploy.sh
+./deploy.sh YOUR_PROJECT_ID
+
+# Or deploy manually
+gcloud config set project YOUR_PROJECT_ID
+gcloud services enable run.googleapis.com containerregistry.googleapis.com cloudbuild.googleapis.com
+gcloud builds submit --config cloudbuild.yaml
+```
+
+**Documentation**:
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Complete deployment guide
+- [DOMAIN_SETUP_pvalue.one.md](DOMAIN_SETUP_pvalue.one.md) - Specific setup for pvalue.one domain
+- Quick start: Run `./deploy.sh YOUR_PROJECT_ID` and follow the prompts
+
+**Access the app**:
+- After deployment: Cloud Run URL (e.g., `https://panel-espresso-xxxxx-uc.a.run.app`)
+- With custom domain: `https://panel.pvalue.one` (see domain setup guide)
+
 ## Available Versions
 
 This workspace contains **three versions** of the app for different use cases:
