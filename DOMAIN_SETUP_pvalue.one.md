@@ -118,7 +118,7 @@ Log in to your domain registrar (where you manage pvalue.one) and add:
 **GoDaddy:**
 1. Go to [GoDaddy DNS Management](https://dcc.godaddy.com/)
 2. Find pvalue.one
-3. Click DNS → Add
+3. Click DNS -> Add
 4. Add record:
    - Type: `CNAME`
    - Host: `panel`

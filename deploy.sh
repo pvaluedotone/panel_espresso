@@ -76,7 +76,7 @@ gcloud services enable \
 print_info "Building and deploying application..."
 print_info "This may take 5-10 minutes..."
 
-gcloud builds submit --config cloudbuild.yaml --substitutions=_REGION="$REGION"
+gcloud builds submit --config cloudbuild.yaml
 
 # Get service URL
 print_info "Deployment complete!"
