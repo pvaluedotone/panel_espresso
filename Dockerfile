@@ -11,13 +11,10 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy dependency files
-COPY pyproject.toml uv.lock ./
+COPY requirements.txt ./
 
-# Install uv (fast Python package installer)
-RUN pip install --no-cache-dir uv
-
-# Install dependencies using uv
-RUN uv pip install --system --no-cache -r pyproject.toml
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY app.py .
