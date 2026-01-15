@@ -1668,4 +1668,20 @@ with gr.Blocks(title="Panel Espresso") as demo:
     """)
 
 if __name__ == "__main__":
-    demo.launch(share=False, server_name="127.0.0.1", server_port=7860, inbrowser=True)
+    # Get configuration from environment variables for Cloud Run compatibility
+    import os
+    server_name = os.getenv("GRADIO_SERVER_NAME", "127.0.0.1")
+    server_port = int(os.getenv("GRADIO_SERVER_PORT", "7860"))
+    
+    # Detect if running in Cloud Run (PORT environment variable is set)
+    is_cloud_run = "PORT" in os.environ
+    if is_cloud_run:
+        server_name = "0.0.0.0"
+        server_port = int(os.environ.get("PORT", "8080"))
+    
+    demo.launch(
+        share=False, 
+        server_name=server_name, 
+        server_port=server_port, 
+        inbrowser=not is_cloud_run  # Don't open browser in Cloud Run
+    )

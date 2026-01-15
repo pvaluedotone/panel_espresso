@@ -1,0 +1,54 @@
+# Git files
+.git
+.gitignore
+.github
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+wheels/
+
+# Documentation (not needed in container)
+*.md
+!README.md
+
+# Data files (users will upload their own)
+data/*.csv
+*.xlsx
+*.docx
+
+# Test files
+test_*.py
+*_test.py
+
+# Archive files
+archive/
+
+# Lock files (already handled by pyproject.toml)
+# Keep uv.lock for reproducible builds
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
